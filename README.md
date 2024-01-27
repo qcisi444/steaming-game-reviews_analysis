@@ -17,3 +17,8 @@ The repository contains the code for the analysis we performed, as well as the d
 - install sklearn:
 	https://scikit-learn.org/stable/install.html
 
+### Results:
+![alt text](https://github.com/qcisi444/steaming-game-reviews_analysis/blob/main/src/fig/wordcount_plot_report_pos.pdf?raw=true)
+
+![alt text](https://github.com/qcisi444/steaming-game-reviews_analysis/blob/main/src/fig/wordcount_plot_report_neg.pdf?raw=true)
+
