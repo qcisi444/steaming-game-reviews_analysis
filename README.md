@@ -8,4 +8,12 @@ The repository contains the code for the analysis we performed, as well as the d
 - Main dataset taken from: https://github.com/mulhod/steam_reviews/tree/master
 - Additional data on Fallout 4 taken from: https://www.kaggle.com/datasets/andrewmvd/steam-reviews/data
 
-### Results:
+### Prerequisites:
+- install basic requirements using requirements.txt
+- install spacy: 
+	https://spacy.io/usage
+- download spacy model for English language [en_core_web_lg]:
+	https://spacy.io/models/en
+- install sklearn:
+	https://scikit-learn.org/stable/install.html
+

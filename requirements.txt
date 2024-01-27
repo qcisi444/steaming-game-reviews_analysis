@@ -1,0 +1,7 @@
+jsonlines
+many_stop_words
+matplotlib
+numpy
+pandas
+seaborn
+tueplots
