@@ -18,7 +18,7 @@ The repository contains the code for the analysis we performed, as well as the d
 	https://scikit-learn.org/stable/install.html
 
 ### Results:
-![alt text](https://github.com/qcisi444/steaming-game-reviews_analysis/blob/main/src/fig/wordcount_plot_report_pos.pdf)
+![wordcount pos](./src/fig/wordcount_plot_pos.png)
 
-![alt text](https://github.com/qcisi444/steaming-game-reviews_analysis/blob/main/src/fig/wordcount_plot_report_neg.pdf)
+![wordcount neg](./src/fig/wordcount_plot_neg.png)
 
