@@ -1,6 +1,7 @@
 jsonlines
 many_stop_words
 matplotlib
+nltk
 numpy
 pandas
 seaborn

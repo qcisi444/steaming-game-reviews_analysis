@@ -8,12 +8,19 @@ import string
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from many_stop_words import get_stop_words
 
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+nltk.download('wordnet')
+nltk.download('punkt')
+
 # punctuation includes the symbols '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 punctuation = string.punctuation
 # stopwords are words of lesser interesst like 'and, for, no, because, nobody,...'
 stopwords = get_stop_words('en')#list(STOP_WORDS)
-special_characters = list("""!"#$%&\()*+,-./:;<=>?@[\\]^_{|}~""")
 
+special_characters = list(string.punctuation)
+lemmatizer = WordNetLemmatizer()
 
 # convert data for the given 'keys' from jasonlines file to pandas dataframe
 def jasonlines_to_panda_df(path, keys, drop_review_dupes=True):
@@ -82,14 +89,18 @@ def get_fallout_4_df(fraction=1, number=None, game='Fallout 4', path='../dat/add
     return df_sample, choice, n, pos, neg
 
 
-# filter out punctuation, digits and stopwords    
-def filter_string(string):
-    filtered_string = ''.join(filter(lambda char: char not in special_characters ,string))
-    words = filtered_string.split()
+# lemmatize, filter out punctuation and stopwords 
+def filter_string(review):
+    words = review.split()
     filtered_words = [word for word in words if word not in stopwords]
     filtered_string = ' '.join(filtered_words)
-    return filtered_string
-
+    words = word_tokenize(filtered_string)
+    filtered_words = [lemmatizer.lemmatize(word, pos='a') for word in words if word not in stopwords]
+    filtered_words = [lemmatizer.lemmatize(word, pos='v') for word in filtered_words if word not in stopwords]
+    filtered_words = [lemmatizer.lemmatize(word, pos='n') for word in filtered_words if word not in stopwords]
+    filtered_string = ' '.join(filtered_words)
+    filtered_string = ''.join(filter(lambda char: char not in special_characters, filtered_string))
+    return filtered_string   
 
 # review to lowercase, filter review, sort by rating and re-index
 def preprocess_df(df):
