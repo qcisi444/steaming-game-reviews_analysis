@@ -3,3 +3,11 @@
 
 # pycache
 __pycache__/
+
+# LaTeX stuff
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+/src/doc/*.pdf
